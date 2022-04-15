@@ -15,10 +15,13 @@ export default class Controller {
       });
       this.model.addtoInputsArr(this.view.listItem);
       this.view.createNewTask();
-      this.view.renderList(this.model.taskArray);
+      this.renderList(this.model.taskArray);
       this.model.inputsArray.forEach((r) => {
         r.lastChild.addEventListener("click", () => {
-            r.remove();
+          r.remove();
+          this.model.removeFromTaskArr(r);
+          this.renderList(this.model.inputsArray);
+          console.log(this.model.inputsArray);
         });
       });
     });
@@ -31,6 +34,16 @@ export default class Controller {
       this.view.checkList(this.model.inputsArray);
       this.view.toggleUp();
       this.view.editSortImg();
+    });
+  }
+
+  renderList(listArray) {
+    // this.createNewTask();
+    listArray.forEach((el) => {
+      //   this.item.textContent = el;
+      this.view.mainList.append(this.view.listItem);
+      this.view.listItem.append(this.view.item);
+      this.view.listItem.append(this.view.removeSymbol);
     });
   }
 }

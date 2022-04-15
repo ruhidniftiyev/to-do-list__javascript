@@ -35,15 +35,16 @@ export default class View {
     });
 
     this.sortUpImage = this.createImage({
-        source: "/images/sortUp.png",
-        class: "todo__sortUp-img ",
-      });
+      source: "/images/sortUp.png",
+      class: "todo__sortUp-img ",
+    });
 
-    this.mainInput = this.createInput({
+    this.item = this.createInput({
       class: "todo__input",
       autocomplete: "off",
       name: "taskName",
       type: "text",
+      draggable: true,
     });
 
     this.mainButton = this.createButton({
@@ -80,7 +81,7 @@ export default class View {
     this.main.appendChild(this.mainForm);
     this.mainForm.appendChild(this.mainList);
     this.mainList.appendChild(this.listItem);
-    this.listItem.appendChild(this.mainInput);
+    this.listItem.appendChild(this.item);
     this.listItem.appendChild(this.removeSymbol);
     this.mainForm.appendChild(this.mainButton);
   }
@@ -128,6 +129,7 @@ export default class View {
     props.name && (input.name = props.name);
     props.type && (input.type = props.type);
     props.value && (input.value = props.value);
+    props.draggable && (input.draggable = props.draggable);
 
     return input;
   }
@@ -153,6 +155,7 @@ export default class View {
       name: `taskName`,
       type: "text",
       value: "",
+      draggable: true,
     });
     this.listItem = this.createDiv({
       class: "listItem",
@@ -160,16 +163,6 @@ export default class View {
     this.removeSymbol = this.createDiv({
       class: "remove",
       text: "×",
-    });
-  }
-
-  renderList(listArray) {
-    // this.createNewTask();
-    listArray.forEach((el) => {
-      //   this.item.textContent = el;
-      this.mainList.append(this.listItem);
-      this.listItem.append(this.item);
-      this.listItem.append(this.removeSymbol);
     });
   }
 
@@ -182,22 +175,21 @@ export default class View {
   checkList(arr) {
     const listElement = this.mainList.firstChild;
     if (arr.length > 0 && listElement.firstChild.value === "") {
-      listElement.style.display = "none"
+      listElement.style.display = "none";
     }
   }
 
   toggleUp() {
-    this.sortBlock.classList.toggle('sortUp');
+    this.sortBlock.classList.toggle("sortUp");
   }
 
   editSortImg() {
-    if(this.sortBlock.classList.contains('sortUp')) {
-        this.sortDownImage.style.display = 'none';
-        this.sortUpImage.style.display = 'block';
-    }
-    else {
-        this.sortDownImage.style.display = 'block';
-        this.sortUpImage.style.display = 'none';
+    if (this.sortBlock.classList.contains("sortUp")) {
+      this.sortDownImage.style.display = "none";
+      this.sortUpImage.style.display = "block";
+    } else {
+      this.sortDownImage.style.display = "block";
+      this.sortUpImage.style.display = "none";
     }
   }
 }

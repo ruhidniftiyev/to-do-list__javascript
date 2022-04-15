@@ -3,7 +3,6 @@ export default class Model {
     this.taskArray = [];
     this.inputsArray = [];
   }
-
   addToTaskArr(newTask) {
     if (!newTask) return;
     this.taskArray.push(newTask);
@@ -19,7 +18,7 @@ export default class Model {
   }
 
   removeFromTaskArr(newTask) {
-      this.inputsArray = this.inputsArray.filter(item => {
+     this.inputsArray =  this.inputsArray.filter(item => {
           return item != newTask;
       })
   }
