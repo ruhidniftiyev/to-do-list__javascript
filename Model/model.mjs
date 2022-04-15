@@ -4,7 +4,7 @@ export default class Model {
     this.inputsArray = [];
   }
   addToTaskArr(newTask) {
-    if (!newTask) return;
+    // if (!newTask) return;
     this.taskArray.push(newTask);
   }
 

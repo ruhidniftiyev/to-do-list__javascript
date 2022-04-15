@@ -38,7 +38,6 @@ export default class Controller {
   }
 
   renderList(listArray) {
-    // this.createNewTask();
     listArray.forEach((el) => {
       //   this.item.textContent = el;
       this.view.mainList.append(this.view.listItem);

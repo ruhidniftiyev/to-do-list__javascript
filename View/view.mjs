@@ -173,10 +173,13 @@ export default class View {
   }
 
   checkList(arr) {
-    const listElement = this.mainList.firstChild;
-    if (arr.length > 0 && listElement.firstChild.value === "") {
-      listElement.style.display = "none";
+    const list = document.querySelector('.todo__view-list');
+    const listElement = list.querySelectorAll('.listItem')
+    listElement.forEach(i => {
+          if (arr.length > 0 && i.firstChild.value === "") {
+      i.style.display = "none";
     }
+    });
   }
 
   toggleUp() {
