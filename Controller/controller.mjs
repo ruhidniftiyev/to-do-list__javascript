@@ -19,7 +19,6 @@ export default class Controller {
       this.model.inputsArray.forEach((r) => {
         r.lastChild.addEventListener("click", () => {
           this.view.item.value = null;
-          r.remove();
           this.model.removeFromTaskArr(r);
           this.view.renderList(this.model.inputsArray);
           console.log(this.model.inputsArray);

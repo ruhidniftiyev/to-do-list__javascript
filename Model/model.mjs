@@ -17,9 +17,10 @@ export default class Model {
     this.taskArray = [];
   }
 
-  removeFromTaskArr(newTask) {
+  removeFromTaskArr(task) {
+    task.remove()
      this.inputsArray =  this.inputsArray.filter(item => {
-          return item != newTask;
+          return item != task;
       })
   }
 
