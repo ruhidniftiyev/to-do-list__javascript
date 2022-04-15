@@ -26,20 +26,20 @@ export default class Model {
 
   sortArrayDown() {
     this.inputsArray.sort((a, b) => {
-      const aTag = a.firstChild.value;
-      const bTag = b.firstChild.value;
-      if (aTag > bTag) return 1;
-      if (aTag < bTag) return -1;
+      const aElem = a.firstChild.value;
+      const bElem = b.firstChild.value;
+      if (aElem > bElem) return 1;
+      if (aElem < bElem) return -1;
       return 0;
     });
   }
 
   sortArrayUp() {
     this.inputsArray.sort((a, b) => {
-      const aTag = a.firstChild.value;
-      const bTag = b.firstChild.value;
-      if (aTag < bTag) return 1;
-      if (aTag > bTag) return -1;
+      const aElem = a.firstChild.value;
+      const bElem = b.firstChild.value;
+      if (aElem < bElem) return 1;
+      if (aElem > bElem) return -1;
       return 0;
     });
   }
