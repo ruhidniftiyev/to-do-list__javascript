@@ -11,7 +11,6 @@ export default class View {
     this.renderPage();
   }
 
-
   renderPage() {
     this.wrapper = this.createDiv({
       class: "wrapper",
@@ -76,7 +75,6 @@ export default class View {
       text: "×",
     });
 
-    this.root.appendChild(this.wrapper);
     this.wrapper.appendChild(this.main);
     this.main.appendChild(this.yellowBlock);
     this.main.appendChild(this.title);
@@ -89,6 +87,7 @@ export default class View {
     this.listItem.appendChild(this.item);
     this.listItem.appendChild(this.removeSymbol);
     this.mainForm.appendChild(this.mainButton);
+    this.root.appendChild(this.wrapper);
   }
 
   createDiv(props) {
@@ -178,12 +177,12 @@ export default class View {
   }
 
   checkList(arr) {
-    const list = document.querySelector('.todo__view-list');
-    const listElement = list.querySelectorAll('.listItem')
-    listElement.forEach(i => {
-          if (arr.length > 0 && i.firstChild.value === "") {
-      i.style.display = "none";
-    }
+    const list = document.querySelector(".todo__view-list");
+    const listElement = list.querySelectorAll(".listItem");
+    listElement.forEach((i) => {
+      if (arr.length > 0 && i.firstChild.value === "") {
+        i.style.display = "none";
+      }
     });
   }
 
@@ -199,5 +198,13 @@ export default class View {
       this.sortDownImage.style.display = "block";
       this.sortUpImage.style.display = "none";
     }
+  }
+
+  renderList(listArray) {
+    listArray.forEach((el) => {
+      this.mainList.append(this.listItem);
+      this.listItem.append(this.item);
+      this.listItem.append(this.removeSymbol);
+    });
   }
 }
