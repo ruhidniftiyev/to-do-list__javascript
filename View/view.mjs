@@ -8,6 +8,11 @@ export default class View {
   }
 
   init() {
+    this.renderPage();
+  }
+
+
+  renderPage() {
     this.wrapper = this.createDiv({
       class: "wrapper",
     });
