@@ -21,7 +21,6 @@ export default class Controller {
           this.view.item.value = null;
           this.model.removeFromTaskArr(r);
           this.view.renderList(this.model.inputsArray);
-          console.log(this.model.inputsArray);
         });
       });
     });
