@@ -181,7 +181,7 @@ export default class View {
     const listElement = list.querySelectorAll(".listItem");
     listElement.forEach((i) => {
       if (arr.length > 0 && i.firstChild.value === "") {
-        i.style.display = "none";
+        i.remove();
       }
     });
   }
@@ -201,10 +201,10 @@ export default class View {
   }
 
   renderList(listArray) {
-    listArray.forEach((el) => {
+    // listArray.forEach(() => {
       this.mainList.append(this.listItem);
       this.listItem.append(this.item);
       this.listItem.append(this.removeSymbol);
-    });
+    // });
   }
 }

@@ -16,11 +16,14 @@ export default class Controller {
       this.model.addtoInputsArr(this.view.listItem);
       this.view.createNewTask();
       this.view.renderList(this.model.taskArray);
-      this.model.inputsArray.forEach((r) => {
+      const list = document.querySelector(".todo__view-list");
+      const listElement = list.querySelectorAll(".listItem");
+      listElement.forEach((r) => {
         r.lastChild.addEventListener("click", () => {
-          this.view.item.value = null;
           this.model.removeFromTaskArr(r);
-          this.view.renderList(this.model.inputsArray);
+          this.view.uList(this.model.inputsArray);
+          this.view.checkList(this.model.inputsArray);
+          console.log(this.model.inputsArray);
         });
       });
     });
