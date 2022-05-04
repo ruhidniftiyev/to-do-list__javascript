@@ -34,12 +34,12 @@ export default class View {
     });
 
     this.sortDownImage = this.createImage({
-      source: "/images/sortDown.png",
+      source: "/src/images/sortDown.png",
       class: "todo__sortDown-img",
     });
 
     this.sortUpImage = this.createImage({
-      source: "/images/sortUp.png",
+      source: "/src/images/sortUp.png",
       class: "todo__sortUp-img ",
     });
 
@@ -48,7 +48,7 @@ export default class View {
       autocomplete: "off",
       name: "taskName",
       type: "text",
-      draggable: true,
+      draggable: "true",
     });
 
     this.mainButton = this.createButton({
@@ -95,6 +95,7 @@ export default class View {
 
     props.class && (div.className = props.class);
     props.text && (div.innerText = props.text);
+
     return div;
   }
 
@@ -103,6 +104,7 @@ export default class View {
 
     props.text && (headTitle.innerText = props.text);
     props.class && (headTitle.className = props.class);
+
     return headTitle;
   }
 
@@ -111,6 +113,7 @@ export default class View {
 
     props.source && (img.src = props.source);
     props.class && (img.className = props.class);
+
     return img;
   }
 
@@ -142,6 +145,7 @@ export default class View {
     const form = document.createElement("form");
 
     props.class && (form.className = props.class);
+
     return form;
   }
 
@@ -149,6 +153,7 @@ export default class View {
     const list = document.createElement("div");
 
     props.class && (list.className = props.class);
+    
     return list;
   }
 
@@ -159,7 +164,7 @@ export default class View {
       name: `taskName`,
       type: "text",
       value: "",
-      draggable: true,
+      draggable: "true",
     });
     this.listItem = this.createDiv({
       class: "listItem",

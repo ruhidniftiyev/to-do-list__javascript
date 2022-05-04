@@ -23,10 +23,10 @@ export default class Controller {
           this.model.removeFromTaskArr(r);
           this.view.uList(this.model.inputsArray);
           this.view.checkList(this.model.inputsArray);
-          console.log(this.model.inputsArray);
         });
       });
     });
+
     this.view.sortBlock.addEventListener("click", () => {
       const elClassName = this.view.sortBlock.className;
       elClassName === "todo__sort sortUp"

@@ -53,6 +53,7 @@
   box-sizing: border-box;
   border-radius: 10px;
   padding-left: 27px;
+  cursor: move;
 }
 
 .todo__button {
@@ -127,13 +128,13 @@
 }
 
 .todo__sortUp-img:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .todo__sortDown-img {
-    opacity: 0.33;
+  opacity: 0.33;
 }
 
 .todo__sortDown-img:hover {
-    opacity: 1;
+  opacity: 1;
 }
